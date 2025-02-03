@@ -9,12 +9,17 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
+import environ
+from pathlib import Path
 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -26,7 +31,7 @@ SECRET_KEY = 'django-insecure-d2kn@_z7nsa=%o^+-vwco@(hwavme#kl5@k!w$ozbs#elup(95
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+ALLOWED_CORS_ORIGIN = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -77,14 +82,13 @@ WSGI_APPLICATION = 'cargo_tracking.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+# Database Configuration (PostgreSQL)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db_url(
+        'DATABASE_URL',
+        default='postgresql://feriha:uz3NZYtpHQD3vw5poXUcaRlBJuf6QhCO@dpg-cugdvgpopnds739a2bu0-a.oregon-postgres.render.com/ferihadb'
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
