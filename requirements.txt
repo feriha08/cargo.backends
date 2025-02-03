@@ -1,0 +1,11 @@
+
+django>=4.2,<5.0
+gunicorn
+psycopg2-binary
+dj-database-url
+django-environ
+python-dotenv
+djangorestframework
+django-cors-headers
+whitenoise
+boto3
