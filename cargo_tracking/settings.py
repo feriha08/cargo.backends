@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-d2kn@_z7nsa=%o^+-vwco@(hwavme#kl5@k!w$ozbs#elup(95
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-AUTH_USER_MODEL = 'cargo.user'
+AUTH_USER_MODEL = 'cargo.User'
 
 ALLOWED_HOSTS = ['*']
 ALLOWED_CORS_ORIGIN = True
