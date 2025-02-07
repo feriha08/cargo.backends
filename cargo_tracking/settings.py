@@ -132,5 +132,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
-    "https://feriha001.netlify.app",  # Allow access from the frontend running on port 3000
+    "https://victorious-wave-0a13d9710.4.azurestaticapps.net"
 ]
